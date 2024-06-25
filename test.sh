@@ -174,4 +174,7 @@ else
 	printf "$total_passed_tests/$total_tests passed\n"
 fi
 
+
+make -s fclean
+
 ##################
