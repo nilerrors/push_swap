@@ -6,13 +6,13 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:57:12 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:11:18 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:14:30 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isalpha(int c)
+t_bool	ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

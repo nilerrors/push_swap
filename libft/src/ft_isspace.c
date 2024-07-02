@@ -6,13 +6,13 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:07:07 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/24 10:55:34 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:15:46 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_isspace(int c)
+t_bool	ft_isspace(int c)
 {
 	return (c == ' '
 		|| c == '\f'

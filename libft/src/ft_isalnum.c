@@ -6,13 +6,13 @@
 /*   By: senayat <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:57:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:06:48 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:14:02 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isalnum(int c)
+t_bool	ft_isalnum(int c)
 {
 	return ((c >= 'a' && c <= 'z')
 		|| (c >= 'A' && c <= 'Z')

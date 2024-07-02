@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_pair_deinit.c                                :+:      :+:    :+:   */
+/*   stack_pair_print_instructions.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 15:21:27 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/27 00:20:04 by senayat          ###   ########.fr       */
+/*   Created: 2024/06/26 19:20:19 by senayat           #+#    #+#             */
+/*   Updated: 2024/06/27 00:10:44 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./stack_pair.h"
 
-void	stack_pair_deinit(t_stack_pair *s)
+static void	_println(void *text)
 {
-	if (!s)
+	ft_putendl((char *)text);
+}
+
+void	stack_pair_print_instructions(t_stack_pair *s)
+{
+	if (!s || !s->instructions)
 		return ;
-	if (s->a)
-		array_list_destroy(s->a);
-	if (s->b)
-		array_list_destroy(s->b);
-	if (s->instructions)
-		ft_lstclear(&s->instructions, NULL);
+	ft_lstiter(s->instructions, &_println);
 }

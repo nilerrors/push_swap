@@ -6,13 +6,13 @@
 /*   By: senayat <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:14:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:11:29 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:15:08 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isdigit(int c)
+t_bool	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }

@@ -6,17 +6,19 @@
 #    By: senayat <senayat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 22:45:48 by senayat           #+#    #+#              #
-#    Updated: 2024/06/23 03:44:52 by senayat          ###   ########.fr        #
+#    Updated: 2024/07/01 23:56:15 by senayat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	./src/push_swap.c						\
-				./src/push_swap_utils.c					\
-				./src/sort_stack_pair.c					\
-				./stack_pair/stack_pair_deinit.c		\
-				./stack_pair/stack_pair_pa_pb.c			\
-				./stack_pair/stack_pair_ra_rb_rr.c		\
-				./stack_pair/stack_pair_rra_rrb_rrr.c	\
+SRCS		=	./src/push_swap.c									\
+				./src/push_swap_utils.c								\
+				./src/sort_stack_pair.c								\
+				./src/do_instructions.c								\
+				./stack_pair/stack_pair_deinit.c					\
+				./stack_pair/stack_pair_print_instructions.c		\
+				./stack_pair/stack_pair_pa_pb.c						\
+				./stack_pair/stack_pair_ra_rb_rr.c					\
+				./stack_pair/stack_pair_rra_rrb_rrr.c				\
 				./stack_pair/stack_pair_sa_sb_ss.c
 
 OBJS		=	$(SRCS:.c=.o)

@@ -74,7 +74,11 @@ valgrind_exit_error=111
 total_tests=0
 total_failed_tests=0
 
+declare -A failed_tests
+
 exec_with_input() {
+	local current_test=$total_tests
+	echo "TEST $current_test:"
 	let total_tests++
 	local test_failed=0
 
@@ -85,7 +89,26 @@ exec_with_input() {
 
 	if [ "$should_err" -eq 0 ]; then
 		assert_not_eq "$error$" "$res" "\`$program $input\` shouldn't err"
-		test_failed=$test_failed || $?
+		local err_code=$?
+		test_failed=$test_failed || $err_code
+		if [ $err_code -eq 0 ]; then
+			OS=$(uname)
+			checker_res=""
+			if [ "$OS" == "Linux" ]; then
+				checker_res=`echo $res | ./checker_linux $input`
+			elif [ "$OS" == "Darwin" ]; then
+				checker_res=`echo $res | ./checker_Mac $input`
+			else
+    			log_failure "The operating system is not supported."
+    			exit 1
+			fi
+
+			if [ checker_res != "OK" ]; then
+				echo -n "    "
+				log_failure "Checker failed"
+				test_failed=1
+			fi
+		fi
 	else
 		assert_eq "$error" "$res" "\`$program $input\` should err"
 		test_failed=$test_failed || $?
@@ -96,14 +119,20 @@ exec_with_input() {
 	if [ $? -eq $valgrind_exit_error ]; then
 		log_failure "valgrind error for input: \`$input\`"
 		if grep -q "definitely lost: [1-9][0-9]* bytes" "$valgrind_log_file" || grep -q "possibly lost: [1-9][0-9]* bytes" "$valgrind_log_file"; then
-			printf "    "
+			echo -n "    "
 			log_failure "memory lost"
 		fi
 		test_failed=1
 	fi
 	rm "$valgrind_log_file"
 	if [ $test_failed -ne 0 ]; then
+		failed_tests[$current_test]=1
 		let total_failed_tests++
+		echo -n "    "
+		log_failure "failed"
+	else
+		echo -n "    "
+		log_success "succeeded"
 	fi
 }
 
@@ -161,7 +190,6 @@ should_err   54867543867438 3
 should_err   -2147483647765 4 5
 should_err   "214748364748385 28 47 29"
 
-
 let total_passed_tests=$total_tests-$total_failed_tests
 
 if [ $total_tests -eq 0 ]; then
@@ -172,8 +200,17 @@ elif [ $total_passed_tests -eq 0 ]; then
 	log_failure "All tests failed"
 else
 	printf "$total_passed_tests/$total_tests passed\n"
+	printf "The following tests failed: "
+	first=1
+	for num in "${!failed_tests[@]}"; do
+		if [ $first -eq 0 ]; then
+			echo -n ", "
+		fi
+		first=0
+		echo -n "$num"
+	done
+	echo ""
 fi
-
 
 make -s fclean
 

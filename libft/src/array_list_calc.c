@@ -1,40 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab.c                                      :+:      :+:    :+:   */
+/*   array_list_calc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 23:43:33 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/26 20:45:20 by senayat          ###   ########.fr       */
+/*   Created: 2024/06/27 16:34:34 by senayat           #+#    #+#             */
+/*   Updated: 2024/07/01 23:59:29 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_bool	ft_set_free(void **ptr)
+t_bool	array_list_smallest(t_array_list *list, size_t *index)
 {
-	if (!ptr || !*ptr)
+	int		n;
+	int		smallest;
+
+	if (!list || array_list_isempty(list))
 		return (FALSE);
-	free(*ptr);
-	*ptr = NULL;
+	*index = 1;
+	array_list_get(list, 0, &n);
+	smallest = n;
+	while (*index < list->size)
+	{
+		array_list_get(list, (*index)++, &n);
+		if (smallest > n)
+		{
+			smallest = n;
+		}
+	}
 	return (TRUE);
 }
 
-t_bool	ft_free_tab(void **tab)
+t_bool	array_list_mean(t_array_list *list, long *mean)
 {
 	size_t	i;
+	int		n;
+	long	sum;
 
-	if (!tab)
+	if (!list || !list->size)
 		return (FALSE);
 	i = 0;
-	while (tab[i])
+	n = 0;
+	sum = 0;
+	while (i < list->size)
 	{
-		free(tab[i]);
-		tab[i] = NULL;
+		array_list_get(list, i, &n);
+		sum += n;
 		i++;
 	}
-	free(tab);
-	tab = NULL;
+	*mean = sum / (long)list->size;
 	return (TRUE);
 }

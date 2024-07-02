@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_pair_deinit.c                                :+:      :+:    :+:   */
+/*   ft_error_management.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 15:21:27 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/27 00:20:04 by senayat          ###   ########.fr       */
+/*   Created: 2024/06/27 16:40:56 by senayat           #+#    #+#             */
+/*   Updated: 2024/06/27 16:41:34 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./stack_pair.h"
+#include "../libft.h"
 
-void	stack_pair_deinit(t_stack_pair *s)
+t_bool	ft_set_err(int *error, t_error val)
 {
-	if (!s)
-		return ;
-	if (s->a)
-		array_list_destroy(s->a);
-	if (s->b)
-		array_list_destroy(s->b);
-	if (s->instructions)
-		ft_lstclear(&s->instructions, NULL);
+	if (!error)
+		return (FALSE);
+	*error = val;
+	return (TRUE);
 }

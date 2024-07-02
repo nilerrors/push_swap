@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 19:30:34 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:11:30 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 19:23:27 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,9 @@ void	ft_putendl_fd(char *s, int fd)
 		return ;
 	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
+}
+
+void	ft_putendl(char *s)
+{
+	ft_putendl_fd(s, 1);
 }

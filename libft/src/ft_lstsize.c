@@ -6,13 +6,13 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 13:37:04 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:11:08 by senayat          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:13:23 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_lstsize(t_list *lst)
+size_t	ft_lstsize(t_list *lst)
 {
 	size_t	i;
 
