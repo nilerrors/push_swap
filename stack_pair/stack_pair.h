@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 22:29:44 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/27 00:13:18 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/04 22:19:42 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	stack_pair_rra(t_stack_pair *s, t_bool print);
 void	stack_pair_rrb(t_stack_pair *s, t_bool print);
 void	stack_pair_rrr(t_stack_pair *s, t_bool print);
 void	stack_pair_print_instructions(t_stack_pair *s);
+t_bool	stack_pair_is_sorted(t_stack_pair *s, t_bool ignore_b);
 
 #endif // STACK_PAIR_H

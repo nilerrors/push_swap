@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   stack_pair_is_sorted.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 13:46:18 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:50:15 by senayat          ###   ########.fr       */
+/*   Created: 2024/07/04 22:19:07 by senayat           #+#    #+#             */
+/*   Updated: 2024/07/04 22:19:10 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "./stack_pair.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_bool	stack_pair_is_sorted(t_stack_pair *s, t_bool ignore_b)
 {
-	t_list	*last;
+	size_t	i;
+	int		n;
+	int		m;
 
-	if (!lst || !new)
-		return ;
-	if (!*lst)
+	if (!s)
+		return (FALSE);
+	if (s->b->size && !ignore_b)
+		return (FALSE);
+	i = 1;
+	while (i < s->a->size)
 	{
-		*lst = new;
-		return ;
+		array_list_get(s->a, i - 1, &n);
+		array_list_get(s->a, i, &m);
+		if (n > m)
+			return (FALSE);
+		i++;
 	}
-	last = ft_lstlast(*lst);
-	last->next = new;
+	return (TRUE);
 }

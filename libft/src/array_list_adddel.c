@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:15:28 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/26 20:41:17 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/04 11:26:32 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	array_list_del(t_array_list *list, size_t index)
 {
-	if (index > list->size)
+	if (index >= list->size)
 		return (FALSE);
 	while (index + 1 < list->size)
 	{

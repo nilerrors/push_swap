@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:52:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/01 23:58:15 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/04 22:13:56 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,15 @@ t_bool			array_list_destroy(t_array_list *list);
 t_bool			array_list_isempty(t_array_list *list);
 t_bool			array_list_set(t_array_list *list, size_t index, int new_item);
 t_bool			array_list_get(t_array_list *list, size_t index, int *item);
-t_bool			array_list_find(t_array_list *list, int item);
+t_bool			array_list_find(t_array_list *list, int item, size_t *index);
 t_bool			array_list_del(t_array_list *list, size_t index);
 t_bool			array_list_double_capacity(t_array_list *list);
 t_bool			array_list_add(t_array_list *list, int new_item);
 t_bool			array_list_insert(t_array_list *list,
 					size_t index, int new_item);
-t_bool			array_list_smallest(t_array_list *list, size_t *index);
+t_bool			array_list_find_smallest(t_array_list *list, size_t *index);
 t_bool			array_list_mean(t_array_list *list, long *mean);
+int				array_list_cost_move_to_top(size_t size, size_t index);
 
 // puts and printf
 void			ft_putchar_fd(char c, int fd);
