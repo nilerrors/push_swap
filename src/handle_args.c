@@ -6,11 +6,27 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:00:55 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:01:44 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/05 20:30:41 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+t_bool	handle_input(t_stack_pair *s, int argc, char **argv)
+{
+	int	should_err;
+
+	if (argc == 2)
+		should_err = !handle_single_arg(s, argv[1]);
+	else
+		should_err = !validate_args(s, argc - 1, argv + 1);
+	if (should_err)
+	{
+		ft_printf("Error\n");
+		return (FALSE);
+	}
+	return (TRUE);
+}
 
 t_bool	handle_single_arg(t_stack_pair *s, char *str)
 {

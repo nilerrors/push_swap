@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:58:39 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/03 12:22:33 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 11:27:24 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static t_bool	perform_rr(t_stack_pair *s, const char *instruction)
 {
-	if (ft_memcmp(instruction, "rra", 3) == 0)
+	if (ft_strncmp(instruction, "rra", 3) == 0)
 		stack_pair_rra(s, TRUE);
-	else if (ft_memcmp(instruction, "rrb", 3) == 0)
+	else if (ft_strncmp(instruction, "rrb", 3) == 0)
 		stack_pair_rrb(s, TRUE);
-	else if (ft_memcmp(instruction, "rrr", 3) == 0)
+	else if (ft_strncmp(instruction, "rrr", 3) == 0)
 		stack_pair_rrr(s, TRUE);
 	else
 		return (FALSE);
@@ -31,21 +31,21 @@ static t_bool	perform_instruction(t_stack_pair *s, const char *instruction)
 		return (FALSE);
 	if (ft_strlen(instruction) == 3)
 		return (perform_rr(s, instruction));
-	if (ft_memcmp(instruction, "sa", 2) == 0)
+	if (ft_strncmp(instruction, "sa", 2) == 0)
 		stack_pair_sa(s, TRUE);
-	else if (ft_memcmp(instruction, "sb", 2) == 0)
+	else if (ft_strncmp(instruction, "sb", 2) == 0)
 		stack_pair_sb(s, TRUE);
-	else if (ft_memcmp(instruction, "ss", 2) == 0)
+	else if (ft_strncmp(instruction, "ss", 2) == 0)
 		stack_pair_ss(s, TRUE);
-	else if (ft_memcmp(instruction, "pa", 2) == 0)
+	else if (ft_strncmp(instruction, "pa", 2) == 0)
 		stack_pair_pa(s, TRUE);
-	else if (ft_memcmp(instruction, "pb", 2) == 0)
+	else if (ft_strncmp(instruction, "pb", 2) == 0)
 		stack_pair_pb(s, TRUE);
-	else if (ft_memcmp(instruction, "ra", 2) == 0)
+	else if (ft_strncmp(instruction, "ra", 2) == 0)
 		stack_pair_ra(s, TRUE);
-	else if (ft_memcmp(instruction, "rb", 2) == 0)
+	else if (ft_strncmp(instruction, "rb", 2) == 0)
 		stack_pair_rb(s, TRUE);
-	else if (ft_memcmp(instruction, "rr", 2) == 0)
+	else if (ft_strncmp(instruction, "rr", 2) == 0)
 		stack_pair_rr(s, TRUE);
 	else
 		return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:52:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:13:56 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:21:39 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void			ft_lstadd_front(t_list **lst, t_list *new_elem);
 size_t			ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new_elem);
+void			ft_lstremove(t_list **lst, t_list *node, void (*del)(void *));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
