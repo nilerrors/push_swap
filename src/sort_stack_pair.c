@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 03:27:35 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:50:02 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:56:38 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static t_bool	sort_le_three(t_stack_pair *s)
 		return (TRUE);
 	if (s->a->size == 2)
 		return (do_instructions(s, "sa"));
-	array_list_get(s->a, 0, &first);
-	array_list_get(s->a, 1, &second);
-	array_list_get(s->a, 2, &third);
+	vector_get(s->a, 0, &first);
+	vector_get(s->a, 1, &second);
+	vector_get(s->a, 2, &third);
 	if (first > second && second > third)
 		do_instructions(s, "ra,sa");
 	else if (first > second && second < third && first > third)
@@ -72,19 +72,19 @@ t_bool	sort_stack_pair(t_stack_pair *s)
 		return (TRUE);
 	if (s->a->size <= 5)
 		return (sort_le_five(s));
-	array_list_mean(s->a, &mean);
+	vector_mean(s->a, &mean);
 	while (s->a->size > 5)
 	{
-		array_list_get(s->a, 0, &n);
+		vector_get(s->a, 0, &n);
 		if (n > mean)
 			do_instructions(s, "ra");
 		else
-			(void)(do_instructions(s, "pb") && array_list_mean(s->a, &mean));
+			(void)(do_instructions(s, "pb") && vector_mean(s->a, &mean));
 	}
 	sort_le_five(s);
-	while (!array_list_isempty(s->b))
+	while (!vector_isempty(s->b))
 		push_best_buddy_to_a(s);
-	array_list_find_smallest(s->a, &smallest);
+	vector_find_smallest(s->a, &smallest);
 	move_nth_to_top(s, smallest, TRUE);
 	return (TRUE);
 }

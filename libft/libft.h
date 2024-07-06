@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:52:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/06 13:21:39 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:53:01 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,18 @@ typedef int	t_bool;
 # define TRUE	1
 # define FALSE	0
 
-typedef int	t_error;
-# define NO_ERR			0
-# define SOME_ERR		1
-# define EMPTY_PTR_ERR	2
-# define MALLOC_ERR		3
-
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-typedef struct t_array_list
+typedef struct s_vector
 {
 	size_t	size;
 	size_t	capacity;
 	int		*items;
-}	t_array_list;
-
-// error management
-t_bool			ft_set_err(int *error, t_error val);
+}	t_vector;
 
 // memory allocation and manipulation
 void			ft_bzero(void *s, size_t n);
@@ -99,22 +90,22 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 
-// array_list -> dynamic array
-t_array_list	*array_list_create(size_t capacity);
-t_bool			array_list_clear(t_array_list *list);
-t_bool			array_list_destroy(t_array_list *list);
-t_bool			array_list_isempty(t_array_list *list);
-t_bool			array_list_set(t_array_list *list, size_t index, int new_item);
-t_bool			array_list_get(t_array_list *list, size_t index, int *item);
-t_bool			array_list_find(t_array_list *list, int item, size_t *index);
-t_bool			array_list_del(t_array_list *list, size_t index);
-t_bool			array_list_double_capacity(t_array_list *list);
-t_bool			array_list_add(t_array_list *list, int new_item);
-t_bool			array_list_insert(t_array_list *list,
+// vector -> dynamic array
+t_vector		*vector_create(size_t capacity);
+t_bool			vector_clear(t_vector *list);
+t_bool			vector_destroy(t_vector *list);
+t_bool			vector_isempty(t_vector *list);
+t_bool			vector_set(t_vector *list, size_t index, int new_item);
+t_bool			vector_get(t_vector *list, size_t index, int *item);
+t_bool			vector_find(t_vector *list, int item, size_t *index);
+t_bool			vector_del(t_vector *list, size_t index);
+t_bool			vector_double_capacity(t_vector *list);
+t_bool			vector_add(t_vector *list, int new_item);
+t_bool			vector_insert(t_vector *list,
 					size_t index, int new_item);
-t_bool			array_list_find_smallest(t_array_list *list, size_t *index);
-t_bool			array_list_mean(t_array_list *list, long *mean);
-int				array_list_cost_move_to_top(size_t size, size_t index);
+t_bool			vector_find_smallest(t_vector *list, size_t *index);
+t_bool			vector_mean(t_vector *list, long *mean);
+int				vector_cost_move_to_top(size_t size, size_t index);
 
 // puts and printf
 void			ft_putchar_fd(char c, int fd);

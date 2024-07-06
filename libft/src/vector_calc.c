@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_calc.c                                  :+:      :+:    :+:   */
+/*   vector_calc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:34:34 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 10:56:15 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:55:31 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_bool	array_list_mean(t_array_list *list, long *mean)
+t_bool	vector_mean(t_vector *list, long *mean)
 {
 	size_t	i;
 	int		n;
@@ -24,7 +24,7 @@ t_bool	array_list_mean(t_array_list *list, long *mean)
 	sum = 0;
 	while (i < list->size)
 	{
-		array_list_get(list, i, &n);
+		vector_get(list, i, &n);
 		sum += n;
 		i++;
 	}
@@ -32,7 +32,7 @@ t_bool	array_list_mean(t_array_list *list, long *mean)
 	return (TRUE);
 }
 
-t_bool	array_list_find_smallest(t_array_list *list, size_t *index)
+t_bool	vector_find_smallest(t_vector *list, size_t *index)
 {
 	size_t	i;
 	int		n;
@@ -41,19 +41,19 @@ t_bool	array_list_find_smallest(t_array_list *list, size_t *index)
 	if (!list || !list->size)
 		return (FALSE);
 	i = 1;
-	array_list_get(list, 0, &n);
+	vector_get(list, 0, &n);
 	while (i < list->size)
 	{
-		array_list_get(list, i, &cur);
+		vector_get(list, i, &cur);
 		if (cur < n)
 			n = cur;
 		i++;
 	}
-	array_list_find(list, n, index);
+	vector_find(list, n, index);
 	return (TRUE);
 }
 
-int	array_list_cost_move_to_top(size_t size, size_t index)
+int	vector_cost_move_to_top(size_t size, size_t index)
 {
 	if (index <= size / 2)
 		return (index);

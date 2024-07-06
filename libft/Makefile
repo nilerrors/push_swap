@@ -6,13 +6,13 @@
 #    By: senayat <senayat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 22:45:48 by senayat           #+#    #+#              #
-#    Updated: 2024/07/02 00:00:33 by senayat          ###   ########.fr        #
+#    Updated: 2024/07/06 20:54:46 by senayat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	src/array_list_adddel.c	src/array_list_create.c	\
-			src/array_list_getset.c	src/array_list_misc.c	\
-			src/array_list_calc.c							\
+SRCS	=	src/vector_adddel.c	src/vector_create.c			\
+			src/vector_getset.c	src/vector_misc.c			\
+			src/vector_calc.c								\
 															\
 			src/ft_isinteger.c		src/ft_isspace.c		\
 			src/ft_free_tab.c								\
@@ -38,8 +38,6 @@ SRCS	=	src/array_list_adddel.c	src/array_list_create.c	\
 			src/ft_strnstr.c		src/ft_strrchr.c		\
 			src/ft_strtrim.c		src/ft_substr.c			\
 			src/ft_tolower.c		src/ft_toupper.c		\
-															\
-			src/ft_error_management.c						\
 															\
 			src/printf/ft_printf.c	src/printf/ft_puts.c	\
 			src/printf/ft_putc.c	src/printf/ft_putp.c	\

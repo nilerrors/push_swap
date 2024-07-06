@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:00:55 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/05 20:30:41 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:58:17 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,22 @@ t_bool	validate_args(t_stack_pair *s, int argc, char **argv)
 
 	if (!argc || !s)
 		return (FALSE);
-	s->a = array_list_create(argc);
+	s->a = vector_create(argc);
 	if (!s->a)
 		return (FALSE);
-	s->b = array_list_create(argc);
+	s->b = vector_create(argc);
 	if (!s->b)
-		return (array_list_destroy(s->a) && FALSE);
+		return (vector_destroy(s->a) && FALSE);
 	i = 0;
 	n = 0;
 	while (i < argc)
 	{
-		if (!ft_isinteger(argv[i++], &n) || array_list_find(s->a, n, NULL))
+		if (!ft_isinteger(argv[i++], &n) || vector_find(s->a, n, NULL))
 		{
 			stack_pair_deinit(s);
 			return (FALSE);
 		}
-		array_list_add(s->a, n);
+		vector_add(s->a, n);
 	}
 	return (TRUE);
 }

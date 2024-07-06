@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 23:11:50 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 11:51:19 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 21:01:30 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	stack_pair_rra(t_stack_pair *s, t_bool print)
 
 	if (!s->a || s->a->size < 2)
 		return ;
-	array_list_get(s->a, s->a->size - 1, &bottom_a);
-	array_list_del(s->a, s->a->size - 1);
-	array_list_insert(s->a, 0, bottom_a);
+	vector_get(s->a, s->a->size - 1, &bottom_a);
+	vector_del(s->a, s->a->size - 1);
+	vector_insert(s->a, 0, bottom_a);
 	if (print)
 		ft_lstadd_back(&s->instructions, ft_lstnew("rra"));
 }
@@ -31,9 +31,9 @@ void	stack_pair_rrb(t_stack_pair *s, t_bool print)
 
 	if (!s->b || s->b->size < 2)
 		return ;
-	array_list_get(s->b, s->b->size - 1, &bottom_b);
-	array_list_del(s->b, s->b->size - 1);
-	array_list_insert(s->b, 0, bottom_b);
+	vector_get(s->b, s->b->size - 1, &bottom_b);
+	vector_del(s->b, s->b->size - 1);
+	vector_insert(s->b, 0, bottom_b);
 	if (print)
 		ft_lstadd_back(&s->instructions, ft_lstnew("rrb"));
 }

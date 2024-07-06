@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 22:29:44 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/05 21:37:40 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:57:41 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct t_stack_pair
 {
-	t_array_list	*a;
-	t_array_list	*b;
+	t_vector		*a;
+	t_vector		*b;
 	t_list			*instructions;
 }	t_stack_pair;
 

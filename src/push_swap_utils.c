@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:01:16 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:20:29 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:57:08 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_bool	push_smallest_to_b(t_stack_pair *s, int times)
 	while (times > 0)
 	{
 		times--;
-		if (!array_list_find_smallest(s->a, &i))
+		if (!vector_find_smallest(s->a, &i))
 			return (FALSE);
 		move_nth_to_top(s, i, TRUE);
 		do_instructions(s, "pb");

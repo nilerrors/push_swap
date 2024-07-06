@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:21:27 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/27 00:20:04 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 21:00:40 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	stack_pair_deinit(t_stack_pair *s)
 	if (!s)
 		return ;
 	if (s->a)
-		array_list_destroy(s->a);
+		vector_destroy(s->a);
 	if (s->b)
-		array_list_destroy(s->b);
+		vector_destroy(s->b);
 	if (s->instructions)
 		ft_lstclear(&s->instructions, NULL);
 }

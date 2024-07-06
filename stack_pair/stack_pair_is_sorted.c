@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:19:07 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 22:19:10 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 21:00:52 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_bool	stack_pair_is_sorted(t_stack_pair *s, t_bool ignore_b)
 	i = 1;
 	while (i < s->a->size)
 	{
-		array_list_get(s->a, i - 1, &n);
-		array_list_get(s->a, i, &m);
+		vector_get(s->a, i - 1, &n);
+		vector_get(s->a, i, &m);
 		if (n > m)
 			return (FALSE);
 		i++;

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_create.c                                :+:      :+:    :+:   */
+/*   vector_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:11:19 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/05 20:05:01 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:55:43 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_array_list	*array_list_create(size_t capacity)
+t_vector	*vector_create(size_t capacity)
 {
-	t_array_list	*arr;
+	t_vector	*arr;
 	int				*items;
 
-	arr = (t_array_list *)malloc(sizeof(t_array_list));
+	arr = (t_vector *)malloc(sizeof(t_vector));
 	if (!arr)
 		return (NULL);
 	arr->size = 0;

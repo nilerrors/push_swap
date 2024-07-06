@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_getset.c                                :+:      :+:    :+:   */
+/*   vector_getset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:14:24 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/04 12:20:05 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:55:56 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_bool	array_list_set(t_array_list *list, size_t index, int new_item)
+t_bool	vector_set(t_vector *list, size_t index, int new_item)
 {
 	if (!list || index >= list->size)
 		return (FALSE);
@@ -20,7 +20,7 @@ t_bool	array_list_set(t_array_list *list, size_t index, int new_item)
 	return (TRUE);
 }
 
-t_bool	array_list_get(t_array_list *list, size_t index, int *item)
+t_bool	vector_get(t_vector *list, size_t index, int *item)
 {
 	if (!list || index >= list->size)
 		return (FALSE);
@@ -28,7 +28,7 @@ t_bool	array_list_get(t_array_list *list, size_t index, int *item)
 	return (TRUE);
 }
 
-t_bool	array_list_find(t_array_list *list, int item, size_t *index)
+t_bool	vector_find(t_vector *list, int item, size_t *index)
 {
 	size_t	i;
 	int		n;
@@ -38,7 +38,7 @@ t_bool	array_list_find(t_array_list *list, int item, size_t *index)
 	i = 0;
 	while (i < list->size)
 	{
-		if (!array_list_get(list, i, &n))
+		if (!vector_get(list, i, &n))
 			break ;
 		if (item == n)
 		{

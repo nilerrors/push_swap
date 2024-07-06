@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_misc.c                                  :+:      :+:    :+:   */
+/*   vector_misc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:12:59 by senayat           #+#    #+#             */
-/*   Updated: 2024/06/26 20:46:03 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/06 20:56:06 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_bool	array_list_clear(t_array_list *list)
+t_bool	vector_clear(t_vector *list)
 {
 	list->size = 0;
 	return (TRUE);
 }
 
-t_bool	array_list_destroy(t_array_list *list)
+t_bool	vector_destroy(t_vector *list)
 {
 	free(list->items);
 	free(list);
 	return (TRUE);
 }
 
-t_bool	array_list_isempty(t_array_list *list)
+t_bool	vector_isempty(t_vector *list)
 {
 	return (list->size == 0);
 }
 
-t_bool	array_list_double_capacity(t_array_list *list)
+t_bool	vector_double_capacity(t_vector *list)
 {
 	size_t	i;
 	int		*items;
