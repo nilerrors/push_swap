@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_create.c                                    :+:      :+:    :+:   */
+/*   ft_extract_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 19:11:19 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/08 23:42:23 by senayat          ###   ########.fr       */
+/*   Created: 2024/07/08 23:34:09 by senayat           #+#    #+#             */
+/*   Updated: 2024/07/08 23:34:09 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_vector	*vector_create(size_t capacity)
+char	*ft_extract_line(const char *from)
 {
-	t_vector	*arr;
-	int			*items;
+	char	*line;
+	size_t	i;
 
-	arr = (t_vector *)malloc(sizeof(t_vector));
-	if (!arr)
+	if (!from || !from[0])
 		return (NULL);
-	arr->size = 0;
-	arr->capacity = capacity;
-	items = (int *)malloc(sizeof(int) * arr->capacity);
-	if (!items)
+	i = 0;
+	while (from[i] && from[i] != '\n')
+		i++;
+	line = ft_calloc(i + 2, sizeof(char));
+	if (!line)
+		return (NULL);
+	if (from[i] == '\n')
+		line[i] = '\n';
+	while (i > 0)
 	{
-		free(arr);
-		return (NULL);
+		i--;
+		line[i] = from[i];
 	}
-	arr->items = items;
-	return (arr);
+	return (line);
 }

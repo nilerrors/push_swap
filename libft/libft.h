@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:52:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/06 20:53:01 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/08 23:37:34 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+# define TOTAL_FD 4096
 
 typedef int	t_bool;
 # define TRUE	1
@@ -56,6 +62,7 @@ t_bool			ft_isprint(int c);
 t_bool			ft_isspace(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+t_bool			ft_char_in_str(char c, const char *str);
 
 // string manipulation
 int				ft_atoi(const char *str);
@@ -76,6 +83,7 @@ char			*ft_strnstr(const char *haystack, const char *needle,
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_extract_line(const char *from);
 
 // list -> linked list
 t_list			*ft_lstnew(void *content);
@@ -107,7 +115,7 @@ t_bool			vector_find_smallest(t_vector *list, size_t *index);
 t_bool			vector_mean(t_vector *list, long *mean);
 int				vector_cost_move_to_top(size_t size, size_t index);
 
-// puts and printf
+// io
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putendl(char *s);
@@ -120,5 +128,7 @@ size_t			ft_putd(int d);
 size_t			ft_putp(void *addr);
 size_t			ft_putu(unsigned int n);
 size_t			ft_putx(unsigned int n, const char f);
+char			*get_next_line(int fd);
+char			*get_next_line_with_abort(int fd, t_bool abort);
 
 #endif // LIBFT_H

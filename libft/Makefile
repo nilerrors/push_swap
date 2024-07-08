@@ -6,7 +6,7 @@
 #    By: senayat <senayat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 22:45:48 by senayat           #+#    #+#              #
-#    Updated: 2024/07/06 20:54:46 by senayat          ###   ########.fr        #
+#    Updated: 2024/07/08 23:49:46 by senayat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	src/vector_adddel.c	src/vector_create.c			\
 			src/vector_calc.c								\
 															\
 			src/ft_isinteger.c		src/ft_isspace.c		\
-			src/ft_free_tab.c								\
+			src/ft_free_tab.c		src/ft_char_in_str.c	\
 			src/ft_atoi.c			src/ft_bzero.c			\
 			src/ft_calloc.c			src/ft_isalnum.c		\
 			src/ft_isalpha.c		src/ft_isascii.c		\
@@ -38,11 +38,14 @@ SRCS	=	src/vector_adddel.c	src/vector_create.c			\
 			src/ft_strnstr.c		src/ft_strrchr.c		\
 			src/ft_strtrim.c		src/ft_substr.c			\
 			src/ft_tolower.c		src/ft_toupper.c		\
+			src/ft_extract_line.c							\
 															\
 			src/printf/ft_printf.c	src/printf/ft_puts.c	\
 			src/printf/ft_putc.c	src/printf/ft_putp.c	\
 			src/printf/ft_putd.c	src/printf/ft_putx.c	\
-			src/printf/ft_putu.c
+			src/printf/ft_putu.c							\
+															\
+			src/get_next_line.c
 
 OBJS		=	$(SRCS:.c=.o)
 

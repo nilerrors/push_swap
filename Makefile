@@ -6,7 +6,7 @@
 #    By: senayat <senayat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 22:45:48 by senayat           #+#    #+#              #
-#    Updated: 2024/07/06 13:26:03 by senayat          ###   ########.fr        #
+#    Updated: 2024/07/08 23:45:41 by senayat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ LIB			=	./libft/libft.a
 
 CC			=	gcc
 RM			=	rm -f
-CFLAGS		=	-Wall -Wextra -Wuninitialized -Werror -fanalyzer -I.
+CFLAGS		=	-Wall -Wextra -Werror -I.
 
 NAME		=	push_swap
 
