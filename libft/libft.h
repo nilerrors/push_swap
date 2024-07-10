@@ -6,7 +6,7 @@
 /*   By: senayat <senayat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:52:10 by senayat           #+#    #+#             */
-/*   Updated: 2024/07/08 23:37:34 by senayat          ###   ########.fr       */
+/*   Updated: 2024/07/11 00:01:24 by senayat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # endif
 
 # define TOTAL_FD 4096
+# define FD_STDIN 0
+# define FD_STDOUT 1
+# define FD_STDERR 2
 
 typedef int	t_bool;
 # define TRUE	1
@@ -84,6 +87,7 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_extract_line(const char *from);
+char			*ft_extract_line_no_endl(const char *from);
 
 // list -> linked list
 t_list			*ft_lstnew(void *content);
